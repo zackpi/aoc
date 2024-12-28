@@ -1,0 +1,22 @@
+{
+  "name": "aoc",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "get": "eval $(cat .env) node ./scripts/getInput.js",
+    "wasm": "wasm-pack build --target web --out-name aoc --out-dir pkg",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.8",
+    "@types/node": "^22.10.2",
+    "node-fetch": "^3.3.2",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2",
+    "vite": "^6.0.6",
+    "vite-plugin-wasm": "^3.3.0"
+  }
+}

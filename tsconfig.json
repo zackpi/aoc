@@ -1,0 +1,9 @@
+{
+  "extends": "@tsconfig/recommended",
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "types": ["vite/client"]
+  }
+}
