@@ -9,11 +9,9 @@ async function day(y, d, override) {
   return aoc[`y${y0}d${d0}`](input);
 }
 
-// await day(15, 1);
-// await day(15, 2);
-// await day(15, 3);
-// await day(15, 4);
-// await day(15, 5);
-// await day(15, 6);
-// await day(15, 7);
-await day(15, 8, "/input/small.txt");
+// for (let d = 1; d <= 9; d++) {
+//   await day(15, d);
+// }
+
+await day(15, 14);
+// await day(15, 14, "/input/small.txt");
