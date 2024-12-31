@@ -1,3 +1,4 @@
+use ndarray::prelude::*;
 use serde_json::Value;
 use std::collections::*;
 use wasm_bindgen::prelude::*;
@@ -382,9 +383,6 @@ pub fn y15d09(input: &str) {
 
 #[wasm_bindgen]
 pub fn y15d10(input: &str) {
-    let mut part1: i32 = 0;
-    let mut part2: i32 = 0;
-
     fn look_say(input: &str) -> String {
         let mut next = String::new();
         let mut chars = input.chars();
@@ -408,11 +406,11 @@ pub fn y15d10(input: &str) {
     for _ in 0..40 {
         input = look_say(&input);
     }
-    part1 = input.len() as i32;
+    let part1 = input.len() as i32;
     for _ in 0..10 {
         input = look_say(&input);
     }
-    part2 = input.len() as i32;
+    let part2 = input.len() as i32;
 
     log(&format!("y15d10p1: {}", part1));
     log(&format!("y15d10p2: {}", part2));
@@ -610,10 +608,112 @@ pub fn y15d14(input: &str) {
     log(&format!("y15d14p2: {}", part2));
 }
 
-// #[wasm_bindgen]
-// pub fn y15d04(input: &str) {
-//     let mut part1: i32 = 0;
-//     let mut part2: i32 = 0;
-//     log(&format!("y15d04p1: {}", part1));
-//     log(&format!("y15d04p2: {}", part2));
-// }
+#[wasm_bindgen]
+pub fn y15d15(input: &str) {
+    let mut part2: i32 = 0;
+
+    let n = input.lines().count();
+    let mut ingredients = Array2::<i64>::zeros((5, n));
+    for (i, line) in input.lines().enumerate() {
+        let props = line.split(" ").collect::<Vec<&str>>();
+        for (j, prop) in props.iter().enumerate().skip(2).step_by(2) {
+            let value = prop.trim_end_matches(',').parse::<i64>().unwrap();
+            ingredients[[j / 2 - 1, i]] = value;
+        }
+    }
+
+    log(&format!("ing: {}", ingredients));
+    let amounts = Array1::<i64>::from_vec(vec![44, 56]);
+    log(&format!("amt: {}", amounts));
+    log(&format!("score: {}", ingredients.dot(&amounts)));
+
+    let part1: i64 = ingredients
+        .dot(&amounts)
+        .slice(s![..-1])
+        .iter()
+        .map(|&x| x.max(0))
+        .product();
+
+    log(&format!("y15d15p1: {}", part1));
+    log(&format!("y15d15p2: {}", part2));
+}
+
+#[wasm_bindgen]
+pub fn y15d16(input: &str) {
+    let mut part1: i32 = 0;
+    let mut part2: i32 = 0;
+    log(&format!("y15d16p1: {}", part1));
+    log(&format!("y15d16p2: {}", part2));
+}
+
+#[wasm_bindgen]
+pub fn y15d17(input: &str) {
+    let mut part1: i32 = 0;
+    let mut part2: i32 = 0;
+    log(&format!("y15d17p1: {}", part1));
+    log(&format!("y15d17p2: {}", part2));
+}
+
+#[wasm_bindgen]
+pub fn y15d18(input: &str) {
+    let mut part1: i32 = 0;
+    let mut part2: i32 = 0;
+    log(&format!("y15d18p1: {}", part1));
+    log(&format!("y15d18p2: {}", part2));
+}
+
+#[wasm_bindgen]
+pub fn y15d19(input: &str) {
+    let mut part1: i32 = 0;
+    let mut part2: i32 = 0;
+    log(&format!("y15d19p1: {}", part1));
+    log(&format!("y15d19p2: {}", part2));
+}
+
+#[wasm_bindgen]
+pub fn y15d20(input: &str) {
+    let mut part1: i32 = 0;
+    let mut part2: i32 = 0;
+    log(&format!("y15d20p1: {}", part1));
+    log(&format!("y15d20p2: {}", part2));
+}
+
+#[wasm_bindgen]
+pub fn y15d21(input: &str) {
+    let mut part1: i32 = 0;
+    let mut part2: i32 = 0;
+    log(&format!("y15d21p1: {}", part1));
+    log(&format!("y15d21p2: {}", part2));
+}
+
+#[wasm_bindgen]
+pub fn y15d22(input: &str) {
+    let mut part1: i32 = 0;
+    let mut part2: i32 = 0;
+    log(&format!("y15d22p1: {}", part1));
+    log(&format!("y15d22p2: {}", part2));
+}
+
+#[wasm_bindgen]
+pub fn y15d23(input: &str) {
+    let mut part1: i32 = 0;
+    let mut part2: i32 = 0;
+    log(&format!("y15d23p1: {}", part1));
+    log(&format!("y15d23p2: {}", part2));
+}
+
+#[wasm_bindgen]
+pub fn y15d24(input: &str) {
+    let mut part1: i32 = 0;
+    let mut part2: i32 = 0;
+    log(&format!("y15d24p1: {}", part1));
+    log(&format!("y15d24p2: {}", part2));
+}
+
+#[wasm_bindgen]
+pub fn y15d25(input: &str) {
+    let mut part1: i32 = 0;
+    let mut part2: i32 = 0;
+    log(&format!("y15d25p1: {}", part1));
+    log(&format!("y15d25p2: {}", part2));
+}
